@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Files
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="background">
+ <ion-card>
+    <ion-card-header>
+      Files
+    </ion-card-header>
+    <ion-card-content>
+  <ion-list>
+  
+<button ion-item (click)="loadbudget()">  
+   <ion-icon name="ios-document" item-start ></ion-icon>
+    Budget File
+  </button>
+  <button ion-item (click)="loadsummary()">
+     <ion-icon name="ios-document" item-start ></ion-icon>
+    Summary  File
+  </button>
+  <button ion-item (click)="loadjournal()" >
+     <ion-icon name="ios-document" item-start ></ion-icon>
+    Journal  File
+  </button>
+  <button ion-item (click)="loadtransfer()">
+     <ion-icon name="ios-document" item-start ></ion-icon>
+    Transfer  File
+  </button>
+</ion-list>
+    </ion-card-content>
+ </ion-card>
+</ion-content>

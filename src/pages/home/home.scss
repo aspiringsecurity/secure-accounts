@@ -1,0 +1,86 @@
+page-home {
+
+    .background
+    {
+        background-image:url('../assets/b.jpg');
+    }
+	.header{
+		padding-top: 20px;
+		font-size: 1.2em;
+		color:black;
+ 
+	}
+        .row-header{
+        font-weight: bold;
+    }
+.button.button-light.active, .button.button-light.activated {
+  color : #000
+}
+.red{
+        color: #f53d3d;
+    }
+     table {
+align-content: center;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+.defaultClass{
+    background:blue;
+}
+
+.activeClass{
+    background:purple;
+}
+td, th {
+    border: 1px solid #000000;
+    text-align: center;
+    padding: 15px;
+}
+
+tr:nth-child(odd) { 
+    background-color:lightcyan;
+height:2px;
+}
+p{
+font-family:arial;
+font-weight: bold;
+color:blue;
+padding:10px;
+}
+  ion-row{
+    }
+
+    ion-col{
+        border-bottom: 0.1rem solid #e1e1e1;
+        text-align: left;
+    }
+    .button.button-gold {
+            border-color: transparent;
+            background-color: #c6a;
+            color: #000000; }
+            .button.button-gold:hover {
+              color: #000000;
+              text-decoration: none; }
+            .button.button-gold.button-outline.active , .button.button-gold.button-outline.activated {
+              background-color:#c6a; }
+            .button.button-gold.button-clear {
+              border-color: transparent;
+              background: none;
+              box-shadow: none;
+              color: #c6a }
+            .button.button-gold.button-icon {
+              border-color: transparent;
+              background: none; }
+            .button.button-gold.button-outline {
+              border-color: #c6a;
+              background: transparent;
+              color: #c6a; }
+               .button.button-gold.button-outline.active ,.button.button-gold.button-outline.activated {
+                background-color: #c6a;
+                box-shadow: none;
+                color: #000000; }
+
+
+}

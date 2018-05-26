@@ -1,0 +1,199 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>My Checkbook</ion-title>
+
+	<ion-buttons end>
+		<button ion-button clear (click)="presentPopover($event)">
+			Options
+		</button>
+	</ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="page-home" class="background">
+	<button ion-button  (click)="open('help')" [ngClass]="{'defaultClass' : !display.help, 'activeClass':display.help}">Help</button>
+	<button ion-button (click)="open('sample')" [ngClass]="{'defaultClass' : !display.sample, 'activeClass':display.sample}">Add Entry</button>
+	<button ion-button (click)="open('checkbook')" [ngClass]="{'defaultClass' : !display.checkbook, 'activeClass':display.checkbook}"  >Checkbook</button>
+	<button ion-button  (click)="open('summary')"[ngClass]="{'defaultClass' : !display.summary, 'activeClass':display.summary}" >Summary</button>
+	
+	<b>TOTAL BALANCE IN YOUR CHECKBOOK= {{totalCurrentBalance}}</b>
+	
+	<ion-item *ngIf="display.sample || display.checkbook">
+	  <ion-label>Account</ion-label>
+	  <ion-select [(ngModel)]="accountSelected" multiple="false" (ionChange)="updateSelectedAccount(accountSelected)">
+	    <ion-option  *ngFor='let account of accountsList' [value]="account">{{ account }}</ion-option>
+	  </ion-select>
+	</ion-item>
+	<!-- <button ion-button item-start (click)="buttonClick()" block>HELP</button>
+	<button ion-button item-start (click)="buttonClick()" block>SAMPLE</button>
+	<button ion-button item-start (click)="buttonClick()" block>CHECKBOOK</button> -->
+
+	<!-- Display the help block here -->
+	<div class="help-block" *ngIf="display.help">
+	
+		<div class="help-body">
+			<p>
+			Sample Check Book Register comprising of Sample Register sheet is an example Check Book Register to understand the Check Book Register application. The focus of the Sample sheet is to help user understand how Check Book Register should be maintained by a user. The user can also remove the sample values individually by clicking on cross button, and can maintain it as a separate Check Book Register for the family members or business partner simultaneously.
+			</p><br>
+
+			<p>
+			Check Book Register comprising of Check Book Register sheet is for maintaining for maintaining transaction records for your enterprise or personal use.
+			</p><br>
+<p> Explanation of tables in Sample and Check Book Register sheets</p>
+		</div>
+			<table>
+				<tr>
+					<td><b>Column Name</b></td>
+					<td><b>Description</b></td>
+				</tr>
+				<tr>
+					<td>Date</td>
+					<td>Date of transaction. The date when the payment is due or the date when the payment is received.</td>
+				</tr>
+				<tr>
+					<td>Num</td>
+					<td>Type of transcation</td>
+				</tr>	
+				<tr>
+					<td>Description</td>
+					<td>Details of the Description</td>
+				</tr>
+				<tr>
+					<td>R</td>
+				
+					<td>R is for Reconsile.When balancing your CheckBook,add an R in this column to indicate that the transaction is correct,and reconciled with your bank statement</td>
+				</tr>
+				<tr>
+					<td>Withdrawal,Payment</td>
+					<td>Amount Withdrawn</td>
+				</tr>	
+				<tr>
+					<td>Deposit,Credit</td>
+					<td>Amount Deposited</td>
+				</tr>
+		
+						
+				<tr>
+					<td>Balance</td>
+					<td>Account Balance</td>
+				</tr>
+				</table>
+		</div>
+
+	<!-- Display the sample block here -->
+	
+	<div class="sample-block" *ngIf="display.sample">
+		<ion-item>
+		  <ion-label (click)="loadDatePicker()">Date : {{ date | datepipe }}</ion-label>
+			<!--<ion-input type="text" [(ngModel)]="entry.date" name="Date"></ion-input>-->
+		</ion-item>
+		<ion-item>
+		<ion-label><b>Num</b></ion-label>
+			<ion-input  [(ngModel)]="entry.num" name="Num"></ion-input>
+		</ion-item>
+		<ion-item>
+		<ion-label><b>Description</b></ion-label>
+			<ion-textarea [(ngModel)]="entry.description" name="Description"></ion-textarea>
+		</ion-item>
+		<ion-item>
+		<ion-label><b>R</b></ion-label>
+			<ion-input [(ngModel)]="entry.r" name="R"></ion-input>
+		</ion-item>
+		<ion-item>
+		<ion-label><b>Withdraw</b></ion-label>
+			<ion-input [(ngModel)]="entry.withdraw" name="Withdraw"></ion-input>
+		</ion-item>
+		<ion-item>
+		<ion-label><b>Deposit</b></ion-label>
+			<ion-input [(ngModel)]="entry.deposit" name="Deposit"></ion-input>
+		</ion-item>
+		<button ion-button type="submit" (click)="logEntry()">Add Entry</button>
+
+		<button ion-button type="submit" (click)="clearEntry()">Clear Entry</button>
+</div>
+	
+
+	<!-- Display the help block here -->
+		<div #mycheckbook>
+	<div class="checkbook-block" *ngIf="display.checkbook">
+				<ion-row class="row-header">
+				<ion-col>Date</ion-col>
+				<ion-col>Num</ion-col>
+				<ion-col>Debit (-)</ion-col>
+				<ion-col>Credit (+)</ion-col>
+				<ion-col>Balance</ion-col>
+			</ion-row>
+			<br><br>
+			<ion-row *ngFor='let entry of register.checkbook ' (tap)="updateRow(entry)">
+				<ion-col>{{ entry.date|datepipe}} </ion-col>
+				<ion-col>{{ entry.num }} </ion-col>	
+				<ion-col>{{ entry.withdraw|amountpipe }} </ion-col>
+				<ion-col>{{ entry.deposit|amountpipe }} </ion-col>
+				<ion-col [ngClass]="{'red':entry.balance < 0}">{{ entry.balance }}</ion-col>
+			</ion-row>
+				<hr>
+			<ion-row>
+			<ion-col *ngIf="this.register.checkbook" col-10>FINAL BALANCE</ion-col>
+			<ion-col *ngIf="this.register.checkbook">{{finalAmount | amountpipe }}</ion-col>
+		</ion-row>
+	</div>
+		</div>
+
+	<!--<div class="summary-block" *ngIf="display.summary" >
+		<ion-row class="row-header">
+			<ion-col>Accounts</ion-col>
+			<ion-col>Balance</ion-col>
+		</ion-row>
+		<ion-row  *ngFor='let account of accounts'>
+
+			<ion-col>{{account.name}}</ion-col>
+			<ion-col>{{finalAmount|amountpipe}}</ion-col>
+		</ion-row>
+	</div>-->
+
+		
+	<!--<div class="summary-block" *ngIf="display.summary" >
+	<ion-row>
+	<ion-col>Name </ion-col>
+	<ion-col> Opening Balance</ion-col>
+	<ion-col>Current Balance</ion-col>
+	</ion-row>
+
+	<ion-row *ngFor='let account of accounts; let i of finalAmount'>
+			<ion-col>{{account.name}} </ion-col>
+			<ion-col>{{account.obalance}}</ion-col>
+			<ion-col>{{i.account}}</ion-col>
+	</ion-row>
+	<ion-row>
+	        <ion-col>TOTAL</ion-col>
+	        <ion-col>{{totalBudget}}</ion-col>
+			
+
+	    </ion-row>-->
+
+
+	<div class="summary-block" *ngIf="display.summary" >
+		<ion-row>
+			<ion-col>Name </ion-col>
+			<ion-col>Opening Balance</ion-col>
+			<ion-col>Current Balance</ion-col>
+		</ion-row>
+
+	    <ion-row *ngFor='let account of accounts'>
+				<ion-col>{{ account.name }} </ion-col>
+				<ion-col>{{ account.obalance }}</ion-col>
+				<ion-col>{{ finalBalance[account.name] }}</ion-col>
+	    </ion-row>
+		<ion-row>
+	            <ion-col>TOTAL</ion-col>
+	            <ion-col>{{ totalBudget }}</ion-col>
+	            <ion-col>{{ totalCurrentBalance }} </ion-col>
+		</ion-row>
+	</div>
+
+<!--if.this.store.get().then
+lrt index=0  index=account-->
+		</ion-content>
+
+
+

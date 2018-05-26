@@ -1,0 +1,39 @@
+page-contact,page-deleteaccount {
+
+
+ .background
+    {
+        background-image:url('../assets/b.jpg');
+    }
+     .scroll-content
+    {
+        align-content: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    ion-card.card{
+        box-shadow: none;
+        background: rgba(80,30, 50, 0.4);
+        border-radius: 7px;
+
+
+    }
+    .ion-label
+    { 
+        color: #000;
+    }
+    a,p,
+    ion-card-header.card-header
+    {
+color: #000;
+    }
+.list >.item-block:first-child{
+    border: medium none;
+}
+.p{
+    color: #000;
+
+}
+}

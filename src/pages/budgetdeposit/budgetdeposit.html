@@ -1,0 +1,65 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Summary</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="background">
+
+	<ion-item>
+	  <ion-label>Account</ion-label>
+	  <ion-select [(ngModel)]="accountSelected" multiple="false" (ionChange)="updateSelectedAccount(accountSelected)" interface="popover">
+	    <ion-option  *ngFor='let account of accountsList' [value]="account">{{ account }}</ion-option>
+	  </ion-select>
+	</ion-item>
+
+	<ion-item>
+		<ion-label>Date created : {{ created | datepipe }} </ion-label>
+	</ion-item>
+
+	<ion-item>
+		<ion-label>Opening Balance : {{ obalance | amountpipe }} </ion-label>
+	</ion-item>
+
+	<ion-item>
+		<ion-label>Pay period budget : {{ payPeriod | amountpipe }} </ion-label>
+	</ion-item>
+
+	<ion-list>
+		<ion-item>
+		<ion-label>Filter Columns</ion-label>
+		<ion-select [(ngModel)]="columns" multiple="true" cancelText="Cancel" okText="Ok" (ionChange)="updateColumns()">
+			<ion-option value="date" selected="true">Date</ion-option>
+			<ion-option value="num">Num</ion-option>
+			<ion-option value="description">Description</ion-option>
+			<ion-option value="r">R</ion-option>
+			<ion-option value="debit">Debit(-)</ion-option>
+			<ion-option value="credit">Credit(+)</ion-option>
+			<ion-option value="balance" selected="true">Balance</ion-option>
+		</ion-select>
+		</ion-item>
+	</ion-list>
+
+	<ion-row class="row-header">
+	    <ion-col *ngIf="display.date">Date</ion-col>	
+	    <ion-col *ngIf="display.num">Num</ion-col>	
+	    <ion-col *ngIf="display.description">Details</ion-col>
+	    <ion-col *ngIf="display.r" col-1>R</ion-col>
+	    <ion-col *ngIf="display.debit">Debit(-)</ion-col>
+	    <ion-col *ngIf="display.credit">Credit(+)</ion-col>
+	    <ion-col *ngIf="display.balance">Balance</ion-col>
+	</ion-row>
+	<ion-row *ngFor='let entry of register.checkbook' (tap)="updateRow(entry)">
+		<ion-col *ngIf="display.date">{{ entry.date | datepipe }}</ion-col>	
+		<ion-col *ngIf="display.num">{{ entry.num }}</ion-col>	
+		<ion-col *ngIf="display.description">{{ entry.description }}</ion-col>
+		<ion-col *ngIf="display.r" col-1>{{ entry.r }}</ion-col>
+		<ion-col *ngIf="display.debit">{{ entry.withdraw | amountpipe}}</ion-col>
+		<ion-col *ngIf="display.credit">{{ entry.deposit | amountpipe }}</ion-col>
+		<ion-col *ngIf="display.balance">{{ entry.balance | amountpipe }}</ion-col>
+	</ion-row>
+
+</ion-content>

@@ -1,0 +1,28 @@
+<!--
+  Generated template for the DeletePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Delete Account</ion-title>
+  </ion-navbar>
+</ion-header>
+  <ion-content class="background">
+    <form [formGroup]="delete" >
+  <ion-card>
+    <ion-card-header>
+      Delete Your Account
+    </ion-card-header>
+    <ion-card-content>
+       <ion-item>
+        <ion-label>Name<span>&nbsp;<sup>*</sup></span></ion-label>
+        <ion-input type="text" formControlName="name"></ion-input>
+      </ion-item> <br> 
+     <button ion-button block   type="submit"(click)="del()"color="blue">Del</button>
+    </ion-card-content>
+  </ion-card>
+  </form>
+</ion-content>

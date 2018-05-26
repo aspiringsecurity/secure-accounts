@@ -1,0 +1,61 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>JOURNAL</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+     <ion-item>
+         <!-- <ion-label>Date<span>&nbsp;<sup>*</sup></span></ion-label>-->
+         <!-- <ion-input type="date" formControlName="date"></ion-input>-->
+           <ion-label (click)="loadDatePicker()">Date : {{ date | datepipe }}</ion-label>
+        </ion-item>
+
+
+  <form [formGroup]="journal">
+
+      
+         <ion-item>
+          <ion-label>Num<span>&nbsp;<sup>*</sup></span></ion-label>
+          <ion-input type="text" formControlName="num"></ion-input>
+        </ion-item>
+        
+
+        <ion-item>
+          <ion-label>Details<span>&nbsp;<sup>*</sup></span></ion-label>
+          <ion-textarea type="text" formControlName="details"></ion-textarea>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label>Withdrawal<span>&nbsp;<sup>*</sup></span></ion-label>
+          <ion-input type="number" formControlName="withdrawal"></ion-input>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label>Deposit<span>&nbsp;<sup>*</sup></span></ion-label>
+          <ion-input type="number" formControlName="deposit"></ion-input>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label>Account Name</ion-label>
+          <ion-select formControlName="accountname" multiple="false" >
+          <ion-option  *ngFor='let account of accountsList' [value]="account">{{ account }}</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Bank Reconcilation<span>&nbsp;<sup>*</sup></span></ion-label>
+          <ion-input type="text" formControlName="bank" placeholder="R or X"></ion-input>
+        </ion-item>
+
+        <br>
+          <button ion-button type="submit" (click)="journaldata()" full>Add Entry</button>
+ </form>   
+
+  
+  
+</ion-content>

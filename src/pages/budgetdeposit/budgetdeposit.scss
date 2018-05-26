@@ -1,0 +1,43 @@
+page-budgetdeposit {
+
+.background
+    {
+        background-image:url('../assets/b.jpg');
+    }
+	.header{
+		padding-top: 20px;
+		font-size: 1.2em;
+		color:#000000;
+        align-content: center;
+        align-self: center;
+ 
+	}
+
+	
+	 table {
+
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 5%;
+}
+p{
+font-family:arial;
+font-weight: bold;
+color:blue;
+padding:10px;
+}
+
+td, th {
+    border: 1px solid #000000;
+    text-align: center;
+    padding: 15px;
+}
+
+tr:nth-child(odd) { 
+    background-color:lightcyan;
+height:2px;
+}
+
+
+}
+

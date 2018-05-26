@@ -1,0 +1,52 @@
+B<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Menu
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="background" >
+ <ion-card>
+    <ion-card-header>
+      Menu
+    </ion-card-header>
+    <ion-card-content>
+<ion-list class="background">
+<button ion-item (click)="loadCreatePage()">
+    <ion-icon name="ios-document" item-start ></ion-icon>
+    Create New Account(s)
+  </button>
+  <button ion-item (click) ="loaddeletePage()">
+    <ion-icon name="ios-archive" item-start></ion-icon>
+   Delete an Account
+  </button>
+  <button ion-item (click)="loadjournal()">
+    <ion-icon name="ios-cash" item-start></ion-icon>
+   Make a Deposit or Withdrawl
+  </button>
+  <button ion-item (click)="loadbudgets()">
+  <ion-icon name="ios-cash" item-start></ion-icon>
+   Make A budget Deposit
+  </button>
+  <button ion-item (click)="loadtransfer()">
+  <ion-icon name="ios-cash" item-start></ion-icon>
+  Make a Transfer
+  </button>
+  <button ion-item (click)="viewsummary()">
+  <ion-icon name="ios-document" item-start></ion-icon>
+    Accounts Summary
+  </button>
+  <button ion-item (click)="camerapreview()">
+  <ion-icon name="ios-document" item-start></ion-icon>
+ Camera Preview
+  </button>
+  <button ion-item (click)="loaduserguide()">
+  <ion-icon name="ios-document" item-start></ion-icon>
+  User-Guide
+  </button>
+</ion-list>
+    </ion-card-content>
+ </ion-card>
+</ion-content>
+

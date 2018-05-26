@@ -1,0 +1,47 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Create Account</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="background">
+
+  <form [formGroup]="account" >
+  <ion-card>
+    <ion-card-header>
+      Create Your Account(s)
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Name<span>&nbsp;<sup>*</sup></span></ion-label>
+        <ion-input type="text" formControlName="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Pay Period Budget</ion-label>
+        <ion-input type="number" formControlName="budget"  placeholder="0.00"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Opening Balance<span>&nbsp;<sup>*</sup></span></ion-label>
+        <ion-input type="number" formControlName="balance"  placeholder="0.00"></ion-input>
+      </ion-item>
+<ion-item>
+<ion-list>
+      <button ion-button type="submit" (click)="createAccount()" >Add Account</button>
+      </ion-list>
+</ion-item>
+
+
+
+    
+    </ion-card-content>
+    
+  </ion-card> 
+
+  </form>
+
+
+</ion-content>
