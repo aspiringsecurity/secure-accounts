@@ -7,7 +7,7 @@ import{BudgetdepositPage} from '../budgetdeposit/budgetdeposit';
 import{TransferPage} from'../transfer/transfer';
 import{UserguidePage} from'../userguide/userguide';
 import{BudgtdepoPage}from '../budgtdepo/budgtdepo';
-import{CameraviewPage}from '../cameraview/cameraview';
+import{CamerapreviewPage}from '../camerapreview/camerapreview';
 import { LocalStorageProvider, Entry } from '../../providers/local-storage/local-storage';
 
 @Component({
@@ -58,7 +58,7 @@ viewsummary()
 }
 camerapreview()
 {
-	this.navCtrl.push(CameraviewPage);
+	this.navCtrl.push(CamerapreviewPage);
 }
 
 

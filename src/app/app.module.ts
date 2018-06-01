@@ -24,6 +24,7 @@ import{UserguidePage} from '../pages/userguide/userguide';
 import{EditentryPage}from'../pages/editentry/editentry';
 import{OptionsPage}from'../pages/options/options';
 import{CameraviewPage}from '../pages/cameraview/cameraview';
+import{CamerapreviewPage}from '../pages/camerapreview/camerapreview';
 import { AmountPipe } from '../pipes/amount/amount';
 import { DatePipe } from '../pipes/date/date';
 import { DatePicker } from '@ionic-native/date-picker';
@@ -70,7 +71,8 @@ export const firebaseconfig={
     ExpandableComponent,
     TipsPage,
     NotifyPage,
-    CameraviewPage
+    CameraviewPage,
+    CamerapreviewPage
   
   ],
   imports: [
@@ -98,7 +100,8 @@ export const firebaseconfig={
     UserguidePage,EditentryPage,OptionsPage,DeleteAccountPage,
     TipsPage,
     NotifyPage,
-    CameraviewPage
+    CameraviewPage,
+    CamerapreviewPage
   ],
   providers: [
     StatusBar,
