@@ -16,16 +16,13 @@ You will be able to plan that big future payment of after paying something off s
 
 WORKING STEPS-
 
-1)
-Cash transfers from one account to another account
+1)Cash transfers from one account to another account
 Transfer cash from one account to another account safely and securely.
 
-2)
-Live monitor warehouse inventory and cash lockers
+2)Live monitor warehouse inventory and cash lockers
 Live monitor warehouse inventory and cash lockers using ONVIF SDK integration and IP Cameras
 
-3)
-Track transactions and export, email data
+3)Track transactions and export, email data
 Track transactions, develop an aggregated balance and export, email transaction data
 
 
